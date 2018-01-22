@@ -67,13 +67,13 @@ public class PlayerControl : MonoBehaviour {
             }
 
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 col.size = new Vector2(col.size.x, .83f);
                 col.offset = new Vector2(col.offset.x, -0.55f);
                 anim.SetBool("Crouch", true);
             }
-            if (Input.GetKeyUp(KeyCode.DownArrow))
+            if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
             {
                 col.size = new Vector2(col.size.x, 1.834229f);
                 col.offset = new Vector2(col.offset.x, 0);
