@@ -27,11 +27,12 @@ public class PoopScript : MonoBehaviour {
             this.transform.localScale = new Vector2(-direction, 1);
             this.GetComponent<AudioSource>().Play();
             if(collision.transform.tag == "Player")
-            {
+            { 
+                //to add force while hitting player ??
+                rb.AddForce(-collision.contacts[0].normal*200); 
                 collision.transform.GetComponent<Rigidbody2D>().AddForce(collision.contacts[0].normal);
                 //Debug.Log(-(collision.contacts[0].normal* powerOfPush));
             }
         }
     }
-
 }

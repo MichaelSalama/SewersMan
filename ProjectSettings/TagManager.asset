@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - CAT
   - Weapon
+  - Poop
   layers:
   - Default
   - TransparentFX

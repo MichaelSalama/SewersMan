@@ -16,6 +16,7 @@ public class CatScript : MonoBehaviour {
         if(other.tag == "Player")
         {
             anim.SetTrigger("scared");
+            this.GetComponent<AudioSource>().Play();
         }
     }
 

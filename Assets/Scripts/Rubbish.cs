@@ -8,7 +8,7 @@ public class Rubbish : MonoBehaviour {
     {
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("da5al el zebala");
+           // Debug.Log("da5al el zebala");
             Destroy(this.gameObject);
 
 

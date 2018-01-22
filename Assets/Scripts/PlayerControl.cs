@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour {
     bool boosted = false;
     float timeelapsed = 0;
 
+   
     //animator
     Animator anim;
     [HideInInspector]
@@ -39,7 +40,7 @@ public class PlayerControl : MonoBehaviour {
         rb = this.GetComponent<Rigidbody2D>();
         col = this.GetComponent<BoxCollider2D>();
         anim = this.GetComponentInChildren<Animator>();
-
+        
         suckingWeapon = GetComponentInChildren<WeaponScript>();
         suckingWeaponParent = GameObject.FindGameObjectWithTag("Weapon");
         suckingWeaponParent.gameObject.SetActive(false);
@@ -155,6 +156,7 @@ public class PlayerControl : MonoBehaviour {
     {
         if (collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
             isGrounded = false;
+
     }
 
     public void Boost()
