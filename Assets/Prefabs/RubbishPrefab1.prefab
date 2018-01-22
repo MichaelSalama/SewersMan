@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4012994592464662}
   - component: {fileID: 58273168463822442}
   - component: {fileID: 50633888866835062}
+  - component: {fileID: 114190899222089144}
   m_Layer: 0
   m_Name: RubbishPrefab1
   m_TagString: Untagged
@@ -106,6 +107,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.43306196}
   serializedVersion: 2
   m_Radius: 0.42438614
+--- !u!114 &114190899222089144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579133600977410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094e5bb636af1c34ca2fa41a1a55855e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212117136315996978
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -32,13 +32,17 @@ public class PlayerControl : MonoBehaviour {
 
     //tools
     WeaponScript suckingWeapon;
+    GameObject suckingWeaponParent;
 
     void Start () {
         //taslik = this.GetComponent<Raycast_To_Bala3a>();
         rb = this.GetComponent<Rigidbody2D>();
         col = this.GetComponent<BoxCollider2D>();
-        suckingWeapon = GetComponentInChildren<WeaponScript>();
         anim = this.GetComponentInChildren<Animator>();
+
+        suckingWeapon = GetComponentInChildren<WeaponScript>();
+        suckingWeaponParent = GameObject.FindGameObjectWithTag("Weapon");
+        suckingWeaponParent.gameObject.SetActive(false);
     }
 
     void Update () {
@@ -49,9 +53,11 @@ public class PlayerControl : MonoBehaviour {
             {
                 anim.SetBool("SuckActive", true);
                 suckAnimationPlayed = true;
+                suckingWeaponParent.SetActive(true);
             }
             anim.SetBool("SuckActive", false);
             suckingWeapon.Suck();
+            suckingWeaponParent.SetActive(true);
         }
         else {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
