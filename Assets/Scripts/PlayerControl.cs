@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour {
 
    
     //animator
-    Animator anim;
+    public Animator anim;
     [HideInInspector]
     public bool suckAnimationPlayed = false;
 
@@ -56,7 +56,7 @@ public class PlayerControl : MonoBehaviour {
                 suckAnimationPlayed = true;
                 suckingWeaponParent.SetActive(true);
             }
-            anim.SetBool("SuckActive", false);
+            //anim.SetBool("SuckActive", false);
             suckingWeapon.Suck();
             suckingWeaponParent.SetActive(true);
         }
@@ -148,14 +148,20 @@ public class PlayerControl : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
+        if (collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
+        {
             isGrounded = true;
+            anim.SetBool("IsGrounded",true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
+        {
             isGrounded = false;
+            anim.SetBool("IsGrounded", false);
+        }
 
     }
 
