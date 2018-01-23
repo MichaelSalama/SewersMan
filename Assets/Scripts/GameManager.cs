@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
             {
                 var difference = (1f - deltah) + 1f;
                 rbOfWater.velocity = new Vector2(0, -(waterSpeed * difference));
-                Debug.Log("speed: " + (-(waterSpeed * difference)));
+                //Debug.Log("speed: " + (-(waterSpeed * difference)));
             }
 
             waterPercentage = CalculateWaterPercentage();
