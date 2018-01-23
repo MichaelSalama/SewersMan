@@ -39,6 +39,7 @@ public class ElWelia : MonoBehaviour
         int r = Random.Range(0,WhatToThrow.Length);
 
         GameObject TrashThrwon = Instantiate(WhatToThrow[r], Trashmitter);
+        this.GetComponent<AudioSource>().Play();
 
         switch (dir)
         {
