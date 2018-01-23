@@ -30,6 +30,7 @@ public class PlayerControl : MonoBehaviour {
     public Transform particleSource;
     public ParticleSystem splashParticles;
     public ParticleSystem motorParticles;
+    ParticleSystem motorBoost;
 
     //tools
     WeaponScript suckingWeapon;
@@ -76,6 +77,19 @@ public class PlayerControl : MonoBehaviour {
             {
                 rb.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * (speed + extraSpeed), 0);
                 //this.transform.localScale = new Vector2(Mathf.Sign(Input.GetAxisRaw("Horizontal")) *1, 1);
+
+                if(motorBoost)
+                {
+                    if (rb.velocity.x >= 0)
+                    {
+                        motorBoost.transform.localRotation = new Quaternion(0, 0, 0, 0);
+                    }
+                    else
+                    {
+                        motorBoost.transform.localRotation = new Quaternion(0, 180, 0, 0);
+                    }
+                }
+                
             }
 
             if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (isGrounded))
@@ -112,13 +126,17 @@ public class PlayerControl : MonoBehaviour {
 
         if (boosted)
         {
+           
+
             timeelapsed += Time.deltaTime;
 
             if (timeelapsed >= 3.4f)
             {
                 boosted = false;
                 extraSpeed = 0;
+                Destroy(motorBoost);
             }
+
         }
     }
 
@@ -189,6 +207,7 @@ public class PlayerControl : MonoBehaviour {
 
     public void Boost()
     {
+        motorBoost = Instantiate(motorParticles, particleSource);
         timeelapsed = 0;
         boosted = true;
         extraSpeed = 6.5f;

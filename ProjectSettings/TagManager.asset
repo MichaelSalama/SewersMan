@@ -10,6 +10,9 @@ TagManager:
   - CAT
   - Weapon
   - Poop
+  - UI
+  - elset
+  - Bala3aBalakona
   layers:
   - Default
   - TransparentFX

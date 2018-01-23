@@ -17,6 +17,7 @@ public class E5fyElSalaka : MonoBehaviour {
         {
             sprites[i].enabled = false;
         }
+        //weapon.GetComponentInChildren<BoxCollider2D>().enabled = false;
     }
 
     void EnableSalaka()
@@ -25,5 +26,6 @@ public class E5fyElSalaka : MonoBehaviour {
         {
             sprites[i].enabled = true;
         }
+        //weapon.GetComponentInChildren<BoxCollider2D>().enabled = true;
     }
 }

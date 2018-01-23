@@ -94,6 +94,10 @@ public class WeaponScript : MonoBehaviour {
             {
                 collision.transform.GetComponent<Bala3aScript>().Open();
             }
+            else if (collision.transform.tag == "Bala3aBalakona")
+            {
+                collision.transform.GetComponent<Bala3etBalakonaScript>().Open();
+            }
             wState = WeaponState.UP;
         }
     }
