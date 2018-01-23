@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: 8ef656bea42430a4b8d0f4ba32476468
-timeCreated: 1516705832
+guid: 95b08902e05560646a5eb24616ddec47
+timeCreated: 1516713691
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Jump_SS_0
-    21300002: Player_Jump_SS_1
-    21300004: Player_Jump_SS_2
-    21300006: Player_Jump_SS_3
+    21300000: WaterBowlIdle
+    21300002: Water_Bowl_SS_1
+    21300004: Water_Bowl_SS_2
+    21300006: Water_Bowl_SS_3
+    21300008: Water_Bowl_SS_4
+    21300010: Water_Bowl_SS_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -50,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 35
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -94,57 +96,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Jump_SS_0
+      name: WaterBowlIdle
       rect:
         serializedVersion: 2
-        x: 6
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 18
+        width: 41
+        height: 34
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_1
+      name: Water_Bowl_SS_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 2
-        width: 97
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 46
+        y: 0
+        width: 41
+        height: 52
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_2
+      name: Water_Bowl_SS_2
       rect:
         serializedVersion: 2
-        x: 222
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 93
+        y: 0
+        width: 41
+        height: 52
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_3
+      name: Water_Bowl_SS_3
       rect:
         serializedVersion: 2
-        x: 335
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 141
+        y: 0
+        width: 41
+        height: 52
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Water_Bowl_SS_4
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 41
+        height: 52
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Water_Bowl_SS_5
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 41
+        height: 52
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

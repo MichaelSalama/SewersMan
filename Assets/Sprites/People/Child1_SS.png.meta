@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 8ef656bea42430a4b8d0f4ba32476468
-timeCreated: 1516705832
+guid: 259c01d848f27194c820d3780f214fa6
+timeCreated: 1516705593
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Jump_SS_0
-    21300002: Player_Jump_SS_1
-    21300004: Player_Jump_SS_2
-    21300006: Player_Jump_SS_3
+    21300000: Child1_SS_0
+    21300002: Child1_SS_1
+    21300004: Child1_SS_2
+    21300006: Child1_SS_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 50
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -94,57 +94,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Jump_SS_0
+      name: Child1_SS_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 0
+        width: 37
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_1
+      name: Child1_SS_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 2
-        width: 97
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 45
+        y: 0
+        width: 43
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_2
+      name: Child1_SS_2
       rect:
         serializedVersion: 2
-        x: 222
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 93
+        y: 0
+        width: 47
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_SS_3
+      name: Child1_SS_3
       rect:
         serializedVersion: 2
-        x: 335
-        y: 2
-        width: 97
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 147
+        y: 0
+        width: 43
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

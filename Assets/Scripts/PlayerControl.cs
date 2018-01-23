@@ -34,6 +34,7 @@ public class PlayerControl : MonoBehaviour {
     //tools
     WeaponScript suckingWeapon;
     GameObject suckingWeaponParent;
+    SpriteRenderer[] arr;
 
     void Start () {
         //taslik = this.GetComponent<Raycast_To_Bala3a>();
@@ -44,6 +45,12 @@ public class PlayerControl : MonoBehaviour {
         suckingWeapon = GetComponentInChildren<WeaponScript>();
         suckingWeaponParent = GameObject.FindGameObjectWithTag("Weapon");
         suckingWeaponParent.gameObject.SetActive(false);
+
+        arr = suckingWeaponParent.gameObject.GetComponentsInChildren<SpriteRenderer>();
+        //for (int i = 0; i < arr.Length; i++)
+        //{
+        //    arr[i].enabled = false;
+        //}
     }
 
     void Update () {
@@ -55,6 +62,10 @@ public class PlayerControl : MonoBehaviour {
                 anim.SetBool("SuckActive", true);
                 suckAnimationPlayed = true;
                 suckingWeaponParent.SetActive(true);
+                //for (int i = 0; i < arr.Length; i++)
+                //{
+                //    arr[i].enabled = true;
+                //}
             }
             //anim.SetBool("SuckActive", false);
             suckingWeapon.Suck();
@@ -148,7 +159,7 @@ public class PlayerControl : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
+        if (collision.transform.tag == "Water" || collision.transform.tag == "Bala3a")
         {
             isGrounded = true;
             anim.SetBool("IsGrounded",true);
@@ -157,12 +168,23 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Water" || collision.transform.tag == "Ground" || collision.transform.tag == "Bala3a")
+        if (collision.transform.tag == "Water" ||  collision.transform.tag == "Bala3a")
         {
             isGrounded = false;
             anim.SetBool("IsGrounded", false);
         }
 
+    }
+    
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Ground")
+        {
+            isGrounded = true;
+            anim.SetBool("IsGrounded", true);
+        }
     }
 
     public void Boost()

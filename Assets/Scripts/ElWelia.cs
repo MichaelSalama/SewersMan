@@ -7,16 +7,25 @@ public enum direct
     left,
     down
 }
+public enum elWeliaState
+{
+    trash,
+    water,
+    trapped
+}
 public class ElWelia : MonoBehaviour
 {
 
     public Transform Trashmitter;
     public GameObject[] WhatToThrow;
+    public GameObject DumpedWater;
 
     public float speed = 10f;
     float t = 0;
-    public direct dir;
-    private bool active = true;
+    private direct dir = direct.down;
+    public elWeliaState state = elWeliaState.water;
+    //private bool active = true;
+
     private void Start()
     {
         StartCoroutine(ThrowGarbage());
@@ -24,55 +33,78 @@ public class ElWelia : MonoBehaviour
 
     void Update()
     {
-        if (!active)
-        {
+        if (state == elWeliaState.trapped)
+        {   
             t += Time.deltaTime;
             if (t >= 10)
-                active = true;
+                state = elWeliaState.water;
         }
     }
+
+
 
     void ThrowTrash()
     {
         //GameObject TrashThrwon = Instantiate(WhatToThrow, Trashmitter.position, Trashmitter.rotation);
-
-        int r = Random.Range(0,WhatToThrow.Length);
-
-        GameObject TrashThrwon = Instantiate(WhatToThrow[r], Trashmitter);
-        this.GetComponent<AudioSource>().Play();
-
-        switch (dir)
+        if (state == elWeliaState.trash)
         {
-            case direct.left:
-                TrashThrwon.GetComponent<Rigidbody2D>().velocity = -transform.right * speed;
-                break;
-            case direct.down:
-                TrashThrwon.GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
-                break;
+            dir = direct.left;
+            int r = Random.Range(0, WhatToThrow.Length);
 
+            GameObject TrashThrwon = Instantiate(WhatToThrow[r], Trashmitter);
+            this.GetComponent<AudioSource>().Play();
+            TrashThrwon.GetComponent<Rigidbody2D>().velocity = -transform.right * speed;
         }
     }
 
-    public void Ropeoisout()
-    {
-        t = 0;
-        // Debug.Log("el 7abl etshad");
-        active = false;
-    }
 
-    IEnumerator ThrowGarbage()
+void DumpWater()
+{
+    if (state == elWeliaState.water)
     {
-        while (true)
+        dir = direct.down;
+        Instantiate(DumpedWater, Trashmitter);
+        //Water.GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
+    }
+}
+
+public void Ropeoisout()
+{
+    t = 0;
+    // Debug.Log("el 7abl etshad");
+   state= elWeliaState.trapped;
+}
+
+IEnumerator ThrowGarbage()
+{
+    while (true)
+    {
+        while (state != elWeliaState.trapped)
         {
-            while (active)
+           // Debug.Log("not trapped");
+            var stateRan = Random.Range(0, 2);
+            if (stateRan == 1)
             {
+                //Debug.Log("trash");
+                state = elWeliaState.trash;
                 //Debug.Log("El welia ramit el kis of rubbish");
                 ThrowTrash();
                 var time = Random.Range(10f, 12f);
                 yield return new WaitForSeconds(time);
             }
-            yield return new WaitForSeconds(10);
+            else if (stateRan == 0)
+            {
+                //Debug.Log("water");
+                state = elWeliaState.water;
+                DumpWater();
+                var time = Random.Range(10f, 12f);
+                yield return new WaitForSeconds(time);
+            }
+                //Debug.Log(stateRan);
         }
+        yield return new WaitForSeconds(10);
 
     }
+
+}
 }

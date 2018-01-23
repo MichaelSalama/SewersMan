@@ -9,7 +9,7 @@ public class Rubbish : MonoBehaviour {
     {
         if (collision.transform.tag == "Player")
         {
-            GameManager gameManager =GameObject.FindObjectOfType<GameManager>();
+            //GameManager gameManager =GameObject.FindObjectOfType<GameManager>();
             //gameManager.Rubbishcount++;
            // Debug.Log("da5al el zebala");
             Destroy(this.gameObject);
