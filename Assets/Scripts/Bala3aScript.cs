@@ -38,6 +38,7 @@ public class Bala3aScript : MonoBehaviour {
 
     public void Open()
     {
+        if (!isOpened) { 
         //Debug.Log("hi");
         isOpened = true;
         timeCounter = 0;
@@ -46,6 +47,7 @@ public class Bala3aScript : MonoBehaviour {
 
         this.GetComponent<AudioSource>().Play();
         anim.SetTrigger("Cleaning");
+        }
     }
 
     private void Close()
