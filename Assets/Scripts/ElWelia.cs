@@ -19,6 +19,7 @@ public class ElWelia : MonoBehaviour
     public Transform Trashmitter;
     public GameObject[] WhatToThrow;
     public GameObject DumpedWater;
+    GameObject WaterDum;
 
     public float speed = 10f;
     float t = 0;
@@ -35,11 +36,19 @@ public class ElWelia : MonoBehaviour
     {
         if (state == elWeliaState.trapped)
         {
+            this.GetComponentInChildren<SpriteRenderer>().enabled = false;
             t += Time.deltaTime;
+            if (WaterDum)
+            {
+                Destroy(WaterDum);
+            }
             if (t >= 7)
                 state = elWeliaState.water;
+
         }
-        Debug.Log(state);
+        //Debug.Log(state);
+
+
     }
 
     void ThrowTrash()
@@ -62,7 +71,7 @@ public class ElWelia : MonoBehaviour
         if (state == elWeliaState.water)
         {
             dir = direct.down;
-            Instantiate(DumpedWater, Trashmitter);
+            WaterDum = Instantiate(DumpedWater, Trashmitter);
             //Water.GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
         }
     }
@@ -80,6 +89,7 @@ public class ElWelia : MonoBehaviour
         {
             while (state != elWeliaState.trapped)
             {
+                this.GetComponentInChildren<SpriteRenderer>().enabled = true;
                 // Debug.Log("not trapped");
                 var stateRan = Random.Range(0, 2);
                 if (stateRan == 1)
@@ -87,6 +97,10 @@ public class ElWelia : MonoBehaviour
                     //Debug.Log("trash");
                     state = elWeliaState.trash;
                     //Debug.Log("El welia ramit el kis of rubbish");
+                    if (WaterDum)
+                    {
+                        Destroy(WaterDum);
+                    }
                     ThrowTrash();
                     var time = Random.Range(10f, 12f);
                     yield return new WaitForSeconds(time);

@@ -74,10 +74,7 @@ public class PlayerControl : MonoBehaviour {
             suckingWeapon.Suck();
             suckingWeaponParent.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.X)&& isGrounded)
-        {
-            elwelia.GetComponent<ElWelia>().Ropeoisout();
-        }
+        
         else {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
             {
@@ -187,6 +184,10 @@ public class PlayerControl : MonoBehaviour {
         {
             isGrounded = true;
             anim.SetBool("IsGrounded",true);
+        }
+        if (collision.transform.tag == "elset" && Input.GetKeyDown(KeyCode.X) && isGrounded)
+        {
+            elwelia.GetComponent<ElWelia>().Ropeoisout();
         }
     }
 
