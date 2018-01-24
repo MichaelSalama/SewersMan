@@ -34,14 +34,13 @@ public class ElWelia : MonoBehaviour
     void Update()
     {
         if (state == elWeliaState.trapped)
-        {   
+        {
             t += Time.deltaTime;
-            if (t >= 10)
+            if (t >= 7)
                 state = elWeliaState.water;
         }
+        Debug.Log(state);
     }
-
-
 
     void ThrowTrash()
     {
@@ -58,53 +57,53 @@ public class ElWelia : MonoBehaviour
     }
 
 
-void DumpWater()
-{
-    if (state == elWeliaState.water)
+    void DumpWater()
     {
-        dir = direct.down;
-        Instantiate(DumpedWater, Trashmitter);
-        //Water.GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
-    }
-}
-
-public void Ropeoisout()
-{
-    t = 0;
-    // Debug.Log("el 7abl etshad");
-   state= elWeliaState.trapped;
-}
-
-IEnumerator ThrowGarbage()
-{
-    while (true)
-    {
-        while (state != elWeliaState.trapped)
+        if (state == elWeliaState.water)
         {
-           // Debug.Log("not trapped");
-            var stateRan = Random.Range(0, 2);
-            if (stateRan == 1)
-            {
-                //Debug.Log("trash");
-                state = elWeliaState.trash;
-                //Debug.Log("El welia ramit el kis of rubbish");
-                ThrowTrash();
-                var time = Random.Range(10f, 12f);
-                yield return new WaitForSeconds(time);
-            }
-            else if (stateRan == 0)
-            {
-                //Debug.Log("water");
-                state = elWeliaState.water;
-                DumpWater();
-                var time = Random.Range(10f, 12f);
-                yield return new WaitForSeconds(time);
-            }
-                //Debug.Log(stateRan);
+            dir = direct.down;
+            Instantiate(DumpedWater, Trashmitter);
+            //Water.GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
         }
-        yield return new WaitForSeconds(10);
-
     }
 
-}
+    public void Ropeoisout()
+    {
+        t = 0;
+        // Debug.Log("el 7abl etshad");
+        state = elWeliaState.trapped;
+    }
+
+    IEnumerator ThrowGarbage()
+    {
+        while (true)
+        {
+            while (state != elWeliaState.trapped)
+            {
+                // Debug.Log("not trapped");
+                var stateRan = Random.Range(0, 2);
+                if (stateRan == 1)
+                {
+                    //Debug.Log("trash");
+                    state = elWeliaState.trash;
+                    //Debug.Log("El welia ramit el kis of rubbish");
+                    ThrowTrash();
+                    var time = Random.Range(10f, 12f);
+                    yield return new WaitForSeconds(time);
+                }
+                else if (stateRan == 0)
+                {
+                    //Debug.Log("water");
+                    state = elWeliaState.water;
+                    DumpWater();
+                    var time = Random.Range(10f, 12f);
+                    yield return new WaitForSeconds(time);
+                }
+                //Debug.Log(stateRan);
+            }
+            yield return new WaitForSeconds(10);
+
+        }
+
+    }
 }

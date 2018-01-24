@@ -22,6 +22,7 @@ public class Bala3etBalakonaScript : MonoBehaviour {
         this.GetComponent<AudioSource>().Play();
         p.Play();
         this.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
 }

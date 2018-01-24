@@ -88,6 +88,10 @@ public class WeaponScript : MonoBehaviour {
         {
             //do nothing
         }
+        if (collision.transform.tag == "Ground")
+        {
+            wState = WeaponState.UP;
+        }
         else
         {
             if (collision.transform.tag == "Bala3a")

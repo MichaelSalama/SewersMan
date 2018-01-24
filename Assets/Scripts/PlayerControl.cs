@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour {
     WeaponScript suckingWeapon;
     GameObject suckingWeaponParent;
     SpriteRenderer[] arr;
+    GameObject elwelia;
 
     void Start () {
         //taslik = this.GetComponent<Raycast_To_Bala3a>();
@@ -46,7 +47,8 @@ public class PlayerControl : MonoBehaviour {
         suckingWeapon = GetComponentInChildren<WeaponScript>();
         suckingWeaponParent = GameObject.FindGameObjectWithTag("Weapon");
         suckingWeaponParent.gameObject.SetActive(false);
-
+        elwelia = GameObject.FindGameObjectWithTag("elset");
+        
         arr = suckingWeaponParent.gameObject.GetComponentsInChildren<SpriteRenderer>();
         //for (int i = 0; i < arr.Length; i++)
         //{
@@ -56,7 +58,7 @@ public class PlayerControl : MonoBehaviour {
 
     void Update () {
 
-        if (Input.GetKeyDown(KeyCode.G) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Z) && isGrounded)
         {
             if (!suckAnimationPlayed)
             {
@@ -71,6 +73,10 @@ public class PlayerControl : MonoBehaviour {
             //anim.SetBool("SuckActive", false);
             suckingWeapon.Suck();
             suckingWeaponParent.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.X)&& isGrounded)
+        {
+            elwelia.GetComponent<ElWelia>().Ropeoisout();
         }
         else {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
