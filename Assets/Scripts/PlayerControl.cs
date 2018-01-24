@@ -185,7 +185,7 @@ public class PlayerControl : MonoBehaviour {
             isGrounded = true;
             anim.SetBool("IsGrounded",true);
         }
-        if (collision.transform.tag == "elset" && Input.GetKeyDown(KeyCode.X) && isGrounded)
+        if (collision.transform.tag == "elset" && Input.GetKeyDown(KeyCode.X) )
         {
             elwelia.GetComponent<ElWelia>().Ropeoisout();
         }
