@@ -13,6 +13,7 @@ TagManager:
   - UI
   - elset
   - Bala3aBalakona
+  - GameManager
   layers:
   - Default
   - TransparentFX
