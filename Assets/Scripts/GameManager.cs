@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 
     public Bala3aScript[] Sewers;
     public Child[] ChildrenToSave;
+    public Button restartB;
 
     Camera mainCamera;
     Water w;
@@ -114,16 +115,23 @@ public class GameManager : MonoBehaviour {
         {
             //you win
             WinScreen.gameObject.SetActive(true);
+            restartB.enabled = true;
+            restartB.GetComponentInChildren<Image>().enabled = true;
 
-            if(!playedSound)
+            if (!playedSound)
             {
                 WinScreen.GetComponent<AudioSource>().Play();
                 playedSound = !playedSound;
             }
+
+            restartB.enabled = true;
         }
         else
         {
             //youlose
+            restartB.enabled = true;
+            restartB.GetComponentInChildren<Image>().enabled = true;
+
             LoseScreen.gameObject.SetActive(true);
         }
 

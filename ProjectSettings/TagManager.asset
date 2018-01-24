@@ -14,6 +14,7 @@ TagManager:
   - elset
   - Bala3aBalakona
   - GameManager
+  - RB
   layers:
   - Default
   - TransparentFX

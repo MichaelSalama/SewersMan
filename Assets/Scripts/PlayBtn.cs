@@ -18,6 +18,11 @@ public class PlayBtn : MonoBehaviour
     //    GameObject.FindWithTag("elset").GetComponent<ElWelia>().enabled = false;
     //}
 
+        public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Enable()
     {
         //Debug.Log("Hiiiii");
